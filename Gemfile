@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'devise'
 
+gem 'simple_form'
+
 gem 'coffee-script-source', '1.8.0'
 
 # Use ActiveModel has_secure_password

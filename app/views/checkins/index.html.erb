@@ -7,7 +7,7 @@
 
 <% @checkins.each do |checkin| %>
 <div class="checkin">
-  <strong><%= checkin.name %></strong>
+  <strong><%= checkin.user.full_name %></strong>
   <p><%= checkin.content %></p>
   <div class="meta">
     <%= link_to time_ago_in_words(checkin.created_at) + " ago", checkin %>
