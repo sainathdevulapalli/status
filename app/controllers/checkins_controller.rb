@@ -1,6 +1,6 @@
 class CheckinsController < ApplicationController
   before_action :set_checkin, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /checkins
   # GET /checkins.json
   def index
@@ -14,7 +14,7 @@ class CheckinsController < ApplicationController
 
   # GET /checkins/new
   def new
-    @checkin = Checkin.new
+    @checkin = current_user.checkins.build
   end
 
   # GET /checkins/1/edit
@@ -24,7 +24,7 @@ class CheckinsController < ApplicationController
   # POST /checkins
   # POST /checkins.json
   def create
-    @checkin = Checkin.new(checkin_params)
+    @checkin = current_user.checkins.build(checkin_params)
 
     respond_to do |format|
       if @checkin.save
