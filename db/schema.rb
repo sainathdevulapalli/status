@@ -11,16 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523100604) do
+ActiveRecord::Schema.define(version: 20150526085924) do
 
   create_table "checkins", force: true do |t|
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "title"
   end
 
   add_index "checkins", ["user_id"], name: "index_checkins_on_user_id"
+
+  create_table "user_friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "state"
+  end
+
+  add_index "user_friendships", ["state"], name: "index_user_friendships_on_state"
+  add_index "user_friendships", ["user_id", "friend_id"], name: "index_user_friendships_on_user_id_and_friend_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"

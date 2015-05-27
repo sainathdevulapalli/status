@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Name:</strong>
  <%= @checkin.user.full_name %> <br>
+ <strong>Title:</strong>
+  <%= @checkin.title %><br>
   <strong>Content:</strong>
   <%= @checkin.content %>
+  
 </p>
 
 <%= link_to 'Edit', edit_checkin_path(@checkin) %> |

@@ -1,11 +1,11 @@
 
 <div class="row>">
-  <div class="col-md-4">
+  <div class="col-md-4" id="signinblock">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "well"}) do |f| %>
 
     <fieldset>
         <legend>Sign In</legend>
-      <%= f.input :email %>
+      <%= f.input :email, autofocus: true %>
       <%= f.input :password %>
 
       
@@ -26,6 +26,6 @@
     <%= render "devise/shared/links" %>
   </div>
 
-  <div class="col-md-8">
+  <div class="col-md-8" id="right">
   <h2>Signing is easy</h2>
 </div>

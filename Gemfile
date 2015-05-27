@@ -27,6 +27,10 @@ gem 'devise'
 
 gem 'simple_form'
 
+gem 'state_machine'
+
+gem 'factory_girl_rails'
+
 gem 'coffee-script-source', '1.8.0'
 
 # Use ActiveModel has_secure_password

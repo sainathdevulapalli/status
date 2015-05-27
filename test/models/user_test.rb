@@ -33,4 +33,6 @@ test "a user should have a profile name without spaces" do
   assert !user.errors[:profile_name].empty?
   assert user.errors[:profile_name].include?("Must be formatted correctly.")
 end
+
+
 end

@@ -1,6 +1,4 @@
-<div class="page-header">
-  <h1>All Checkins</h1>
-</div>
+<legend>Checkins</legend>
 
 <%= link_to "New checkin", new_checkin_path, class: "btn btn-success"  %>
 <br><br>
@@ -8,13 +6,16 @@
 <% @checkins.each do |checkin| %>
 <div class="checkin">
   <strong><%= checkin.user.full_name %></strong>
+  <%= link_to "profile", profile_path(checkin.user) %>
   <p><%= checkin.content %></p>
   <div class="meta">
     <%= link_to time_ago_in_words(checkin.created_at) + " ago", checkin %>
+   
     <span class="admin">
       |<%= link_to "Edit", edit_checkin_path(checkin) %>|
       <%= link_to "Delete", checkin, method: :delete, data: { confirm: "Are you sure?"} %>
     </span>
+    
   </div>
 </div>
   <% end %>

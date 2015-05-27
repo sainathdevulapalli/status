@@ -1,0 +1,15 @@
+<div class="pageheader">
+	<legend><%= @user.full_name %></legend>
+	<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user), class: 'btn btn-primary' %>
+</div>
+<br>
+<% if @checkins %>
+
+	<% @checkins.each do|checkin| %>
+	<div class="well">
+		<%= checkin.title %><br>
+		<%= checkin.content %><br>
+		<%= link_to time_ago_in_words(checkin.created_at), checkin_path(checkin) %> ago
+	</div>
+	<% end %>
+	<% end %>

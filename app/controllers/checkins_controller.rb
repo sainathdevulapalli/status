@@ -19,6 +19,7 @@ class CheckinsController < ApplicationController
 
   # GET /checkins/1/edit
   def edit
+     
   end
 
   # POST /checkins
@@ -40,8 +41,10 @@ class CheckinsController < ApplicationController
   # PATCH/PUT /checkins/1
   # PATCH/PUT /checkins/1.json
   def update
+    @checkin = Checkin.find(params[:id])
+
     respond_to do |format|
-      if @checkin.update(checkin_params)
+      if @checkin.update_attributes(checkin_params)
         format.html { redirect_to @checkin, notice: 'Checkin was successfully updated.' }
         format.json { render :show, status: :ok, location: @checkin }
       else
@@ -69,6 +72,6 @@ class CheckinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checkin_params
-      params.require(:checkin).permit(:user_id, :content)
+      params.require(:checkin).permit(:content, :title)
     end
 end
